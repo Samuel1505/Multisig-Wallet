@@ -44,7 +44,10 @@ contract MetaMultiSigWallet {
         chainId = _chainId;
     }
 
-    
+    modifier onlySelf() {
+        require(msg.sender == address(this), "Not Self");
+        _;
+    }
 
     function addSigner(address newSigner, uint256 newSignaturesRequired) public onlySelf {
         require(newSigner != address(0), "addSigner: zero address");
