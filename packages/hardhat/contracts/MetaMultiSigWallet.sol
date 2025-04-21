@@ -16,15 +16,7 @@ contract MetaMultiSigWallet {
     using MessageHashUtils for bytes32;
 
     event Deposit(address indexed sender, uint amount, uint balance);
-    event ExecuteTransaction(
-        address indexed owner,
-        address payable to,
-        uint256 value,
-        bytes data,
-        uint256 nonce,
-        bytes32 hash,
-        bytes result
-    );
+    
     event Owner(address indexed owner, bool added);
     mapping(address => bool) public isOwner;
     uint public signaturesRequired;
